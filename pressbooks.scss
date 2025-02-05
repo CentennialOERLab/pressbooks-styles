@@ -1,0 +1,161 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  '2xl': 1400px,
+);
+
+$shadow-values: (
+  '2xs': 0 1px rgb(0, 0, 0, 0.05),
+  'xs': 0 1px 2px 0 rgb(0, 0, 0, 0.05),
+  'sm': (0 1px 3px 0 rgb(0, 0, 0, 0.1),
+    0 1px 2px -1px rgb(0, 0, 0, 0.1)),
+  'md': (0 4px 6px -1px rgb(0, 0, 0, 0.1),
+    0 2px 4px -2px rgb(0, 0, 0, 0.1)),
+  'lg': (0 10px 15px -3px rgb(0, 0, 0, 0.1),
+    0 4px 6px -4px rgb(0, 0, 0, 0.1)),
+  'xl': (0 20px 25px -5px rgb(0, 0, 0, 0.1),
+    0 8px 10px -6px rgb(0, 0, 0, 0.1)),
+  '2xl': 0 25px 50px -12px rgb(0, 0, 0, 0.25),
+  'inner': inset 0 2px 4px 0 rgb(0, 0, 0, 0.06),
+  'none': 0 0 #0000,
+);
+
+$radius-values: (
+  'none': 0,
+  'xs': 0.125rem,
+  'sm': 0.25rem,
+  'md': 0.375rem,
+  'lg': 0.5rem,
+  'xl': 0.75rem,
+  '2xl': 1rem,
+  '3xl': 1.5rem,
+  'full': calc(infinity * 1px),
+);
+
+$display-values: (
+  'block': block,
+  'inline': inline,
+  'inline-block': inline-block,
+  'flex': flex,
+  'grid': grid,
+  'none': none,
+);
+
+$justify-content-values: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around,
+  'evenly': space-evenly,
+);
+
+$align-items-values: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'stretch': stretch,
+  'baseline': baseline,
+);
+
+$flex-direction-values: (
+  'row': row,
+  'row-reverse': row-reverse,
+  'col': column,
+  'col-reverse': column-reverse,
+);
+
+$unit-values: (
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '10': 2.5rem,
+  '12': 3rem,
+);
+
+$pixel-values: (
+  '0': 0,
+  '1': 1px,
+  '2': 2px,
+  '4': 4px,
+);
+
+$grid-cols-values: (
+  '1': repeat(1, minmax(0, 1fr)),
+  '2': repeat(2, minmax(0, 1fr)),
+  '3': repeat(3, minmax(0, 1fr)),
+  '4': repeat(4, minmax(0, 1fr)),
+);
+
+$pseudo-classes: (
+  'hover': ':hover',
+  'focus': ':focus',
+  'active': ':active',
+  'visited': ':visited',
+  'focus-within': ':focus-within',
+  'focus-visible': ':focus-visible',
+);
+
+@mixin generate-utilities($property-prefix, $property, $values) {
+  @each $name, $value in $values {
+    .#{$property-prefix}-#{$name} {
+      #{$property}: $value;
+    }
+
+    @each $breakpoint-key, $breakpoint-value in $breakpoints {
+      .#{$breakpoint-key}\\:#{$property-prefix}-#{$name} {
+        @media (min-width: $breakpoint-value) {
+          #{$property}: $value;
+        }
+      }
+    }
+
+    @each $pseudo-key, $pseudo-value in $pseudo-classes {
+      .#{$pseudo-key}\\:#{$property-prefix}-#{$name} {
+        &#{$pseudo-value} {
+          #{$property}: $value;
+        }
+      }
+
+      @each $breakpoint-key, $breakpoint-value in $breakpoints {
+        .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}:#{$pseudo-key} {
+          @media (min-width: $breakpoint-value) {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include generate-utilities('display', 'display', $display-values);
+@include generate-utilities('justify', 'justify-content', $justify-content-values);
+@include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
+@include generate-utilities('align', 'align-items', $align-items-values);
+@include generate-utilities('flex-dir', 'flex-direction', $flex-direction-values);
+@include generate-utilities('m', 'margin', $unit-values);
+@include generate-utilities('mx', 'margin-inline', $unit-values);
+@include generate-utilities('my', 'margin-block', $unit-values);
+@include generate-utilities('mb', 'margin-bottom', $unit-values);
+@include generate-utilities('mt', 'margin-top', $unit-values);
+@include generate-utilities('ml', 'margin-left', $unit-values);
+@include generate-utilities('mr', 'margin-right', $unit-values);
+@include generate-utilities('p', 'padding', $unit-values);
+@include generate-utilities('pb', 'padding-bottom', $unit-values);
+@include generate-utilities('pt', 'padding-top', $unit-values);
+@include generate-utilities('pl', 'padding-left', $unit-values);
+@include generate-utilities('pr', 'padding-right', $unit-values);
+@include generate-utilities('gap', 'gap', $unit-values);
+@include generate-utilities('gap-x', 'column-gap', $unit-values);
+@include generate-utilities('gap-y', 'row-gap', $unit-values);
+@include generate-utilities('indent', 'text-indent', $unit-values);
+@include generate-utilities('border', 'border-width', $pixel-values);
+@include generate-utilities('rounded', 'border-radius', $radius-values);
+@include generate-utilities('shadow', 'box-shadow', $shadow-values);
