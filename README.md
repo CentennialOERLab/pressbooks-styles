@@ -11,3 +11,8 @@ It is a work in progress and is meant to receive contributions from the OER lab 
 4. Test the new utility classes in your pressbooks clone (as custom styles)
 5. Submit a pull request to this repository
    (from your forked repository to the original repository)
+
+### Todos
+
+[] Turn into a Node project and install SCSS.
+[] Add a playground (HTML) file for testing purposes.
