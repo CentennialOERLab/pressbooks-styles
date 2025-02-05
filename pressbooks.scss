@@ -103,6 +103,18 @@ $pseudo-classes: (
   'focus-visible': ':focus-visible',
 );
 
+$font-weight-values: (
+  'thin': 100,
+  'extralight': 200,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800,
+  'black': 900,
+);
+
 @mixin generate-utilities($property-prefix, $property, $values) {
   @each $name, $value in $values {
     .#{$property-prefix}-#{$name} {
@@ -159,3 +171,4 @@ $pseudo-classes: (
 @include generate-utilities('border', 'border-width', $pixel-values);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
+@include generate-utilities('font', 'font-weight', $font-weight-values)
