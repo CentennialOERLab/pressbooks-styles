@@ -103,16 +103,42 @@ $pseudo-classes: (
   'focus-visible': ':focus-visible',
 );
 
+$font-weight-values: (
+  'thin': 100,
+  'extralight': 200,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800,
+  'black': 900,
+);
+
+//  NOTE: the php-sass compiler automatically removes backslashes from its output,
+// so we need to double-escape the double backslash
+$important-suffix: "\\\\!";
+
 @mixin generate-utilities($property-prefix, $property, $values) {
   @each $name, $value in $values {
     .#{$property-prefix}-#{$name} {
       #{$property}: $value;
     }
 
+    .#{$property-prefix}-#{$name}#{$important-suffix} {
+      #{$property}: $value !important;
+    }
+
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
       .#{$breakpoint-key}\\:#{$property-prefix}-#{$name} {
         @media (min-width: $breakpoint-value) {
           #{$property}: $value;
+        }
+      }
+
+      .#{$breakpoint-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
+        @media (min-width: $breakpoint-value) {
+          #{$property}: $value !important;
         }
       }
     }
@@ -124,10 +150,22 @@ $pseudo-classes: (
         }
       }
 
+      .#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
+        &#{$pseudo-value} {
+          #{$property}: $value !important;
+        }
+      }
+
       @each $breakpoint-key, $breakpoint-value in $breakpoints {
         .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
             #{$property}: $value;
+          }
+        }
+
+        .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix}:#{$pseudo-key} {
+          @media (min-width: $breakpoint-value) {
+            #{$property}: $value !important;
           }
         }
       }
@@ -139,7 +177,7 @@ $pseudo-classes: (
 @include generate-utilities('justify', 'justify-content', $justify-content-values);
 @include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
 @include generate-utilities('align', 'align-items', $align-items-values);
-@include generate-utilities('flex-dir', 'flex-direction', $flex-direction-values);
+@include generate-utilities('flex', 'flex-direction', $flex-direction-values);
 @include generate-utilities('m', 'margin', $unit-values);
 @include generate-utilities('mx', 'margin-inline', $unit-values);
 @include generate-utilities('my', 'margin-block', $unit-values);
@@ -159,3 +197,4 @@ $pseudo-classes: (
 @include generate-utilities('border', 'border-width', $pixel-values);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
+@include generate-utilities('font', 'font-weight', $font-weight-values);
