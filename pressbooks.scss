@@ -171,4 +171,4 @@ $font-weight-values: (
 @include generate-utilities('border', 'border-width', $pixel-values);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
-@include generate-utilities('font', 'font-weight', $font-weight-values)
+@include generate-utilities('font', 'font-weight', $font-weight-values);
