@@ -14,5 +14,5 @@ It is a work in progress and is meant to receive contributions from the OER lab 
 
 ### Todos
 
-[] Turn into a Node project and install SCSS.
-[] Add a playground (HTML) file for testing purposes.
+- [] Turn into a Node project and install SCSS.
+- [] Add a playground (HTML) file for testing purposes.
