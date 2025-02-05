@@ -139,7 +139,7 @@ $pseudo-classes: (
 @include generate-utilities('justify', 'justify-content', $justify-content-values);
 @include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
 @include generate-utilities('align', 'align-items', $align-items-values);
-@include generate-utilities('flex-dir', 'flex-direction', $flex-direction-values);
+@include generate-utilities('flex', 'flex-direction', $flex-direction-values);
 @include generate-utilities('m', 'margin', $unit-values);
 @include generate-utilities('mx', 'margin-inline', $unit-values);
 @include generate-utilities('my', 'margin-block', $unit-values);
