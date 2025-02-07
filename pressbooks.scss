@@ -151,7 +151,7 @@ $blur-values: (
   'xl': blur(40px),
   '2xl': blur(64px),
   '3xl': blur(96px),
-  'none': none,
+  'none': none
 );
 
 $cursor-values: (
@@ -167,7 +167,7 @@ $cursor-values: (
 );
 
 $transition-values: (
-  'all': all cubic-bezier(0.4, 0, 0.2, 1) 300ms,
+  'all': all cubic-bezier(0.4, 0, 0.2, 1) 300ms
 );
 
 $transition-timing-values: (
@@ -366,3 +366,8 @@ $important-suffix: '!';
 @include generate-utilities('background', 'background-color', $colors);
 @include generate-utilities('w', 'width', $width-values);
 @include generate-utilities('color', 'color', $colors);
+@include generate-utilities('duration', 'transition-duration', $transition-unit-values);
+@include generate-utilities('delay', 'transition-delay', $transition-unit-values);
+@include generate-utilities('ease', 'transition-timing-function', $transition-values);
+@include generate-utilities('list', 'list-style-type', $list-style-values);
+@include generate-utilities('text', 'text-transform', $text-transform-values);
