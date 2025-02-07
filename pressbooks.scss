@@ -9,22 +9,14 @@ $breakpoints: (
 $shadow-values: (
   '2xs': 0 1px rgb(0, 0, 0, 0.05),
   'xs': 0 1px 2px 0 rgb(0, 0, 0, 0.05),
-  'sm': (
-    0 1px 3px 0 rgb(0, 0, 0, 0.1),
-    0 1px 2px -1px rgb(0, 0, 0, 0.1),
-  ),
-  'md': (
-    0 4px 6px -1px rgb(0, 0, 0, 0.1),
-    0 2px 4px -2px rgb(0, 0, 0, 0.1),
-  ),
-  'lg': (
-    0 10px 15px -3px rgb(0, 0, 0, 0.1),
-    0 4px 6px -4px rgb(0, 0, 0, 0.1),
-  ),
-  'xl': (
-    0 20px 25px -5px rgb(0, 0, 0, 0.1),
-    0 8px 10px -6px rgb(0, 0, 0, 0.1),
-  ),
+  'sm': (0 1px 3px 0 rgb(0, 0, 0, 0.1),
+    0 1px 2px -1px rgb(0, 0, 0, 0.1)),
+  'md': (0 4px 6px -1px rgb(0, 0, 0, 0.1),
+    0 2px 4px -2px rgb(0, 0, 0, 0.1)),
+  'lg': (0 10px 15px -3px rgb(0, 0, 0, 0.1),
+    0 4px 6px -4px rgb(0, 0, 0, 0.1)),
+  'xl': (0 20px 25px -5px rgb(0, 0, 0, 0.1),
+    0 8px 10px -6px rgb(0, 0, 0, 0.1)),
   '2xl': 0 25px 50px -12px rgb(0, 0, 0, 0.25),
   'inner': inset 0 2px 4px 0 rgb(0, 0, 0, 0.06),
   'none': 0 0 #0000,
@@ -104,6 +96,7 @@ $unit-values: (
 );
 
 $pixel-values: (
+  '0': 0,
   '1': 1px,
   '2': 2px,
   '4': 4px,
@@ -152,6 +145,7 @@ $blur-values: (
   '2xl': blur(64px),
   '3xl': blur(96px),
   'none': none
+  'none': none
 );
 
 $cursor-values: (
@@ -167,6 +161,7 @@ $cursor-values: (
 );
 
 $transition-values: (
+  'all': all cubic-bezier(0.4, 0, 0.2, 1) 300ms
   'all': all cubic-bezier(0.4, 0, 0.2, 1) 300ms
 );
 
@@ -206,50 +201,79 @@ $text-transform-values: (
   'normal-case': none,
 );
 
-$text-align-values: (
-  'left': left,
-  'right': right,
-  'center': center,
-  'justify': justify,
-);
-
 $colors: (
   'white': #fff,
-  'learningobj': #c5bdaa,
-  'tryit': #3c2a21,
+  'learning-obj': #c5bdaa,
+  'try-it': #3c2a21,
   'example': #eae8d7,
-  'challenge': #eae8d7,
+  'challenge-question': #eae8d7,
   'accordion': #f0f0f0,
   'transparent': transparent,
 );
 
-$width-values: (
-  '0': 0%,
-  '5': 5%,
-  '10': 10%,
-  '15': 15%,
-  '20': 20%,
-  '25': 25%,
-  '30': 30%,
-  '35': 35%,
-  '40': 40%,
-  '45': 45%,
-  '50': 50%,
-  '55': 55%,
-  '60': 60%,
-  '65': 65%,
-  '70': 70%,
-  '75': 75%,
-  '80': 80%,
-  '85': 85%,
-  '90': 90%,
-  '95': 95%,
-  '100': 100%,
+$width-fraction-values: (
+  "1/2": 50%,
+  "1/3": 33.3333%,
+  "2/3": 66.6667%,
+  "1/4": 25%,
+  "2/4": 50%,
+  "3/4": 75%,
+  "1/5": 20%,
+  "2/5": 40%,
+  "3/5": 60%,
+  "4/5": 80%,
+  "full": 100%,
+  "auto": auto,
+  "min": min-content,
+  "max": max-content
 );
+
+$width-fixed-values: (
+  "0": 0,
+  "px": 1px,
+  "0.5": 0.125rem,
+  "1": 0.25rem,
+  "2": 0.5rem,
+  "4": 1rem,
+  "8": 2rem,
+  "10": 2.5rem,
+  "16": 4rem,
+  "32": 8rem,
+  "96": 24rem
+);
+
+// for width experiment 
+// @mixin generate-width-utilities() {
+//   // Generate fractional width classes (e.g., w-1/2 → w-1\/2)
+//   @each $name, $value in $width-fraction-values {
+//     $escaped-name: unquote(str-replace($name, "/", "\\/"));
+//     .w-#{$escaped-name} {
+//       width: $value;
+//     }
+//   }
+
+//   // Generate fixed width classes (e.g., w-0.5 → w-0-5)
+//   @each $name, $value in $width-fixed-values {
+//     $escaped-name: unquote(str-replace($name, ".", "-"));
+//     .w-#{$escaped-name} {
+//       width: $value;
+//     }
+//   }
+// }
+
+// Helper function for string replacement
+// @function str-replace($string, $search, $replace) {
+//   $index: str-index($string, $search);
+//   @if $index {
+//     @return str-slice($string, 1, $index - 1) + $replace +
+//       str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+//   }
+//   @return $string;
+// }
 
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
 // so we need to double-escape the double backslash
-$important-suffix: '!';
+$important-suffix: "\\\\!";
 
 @mixin generate-utilities($property-prefix, $property, $values) {
   @each $name, $value in $values {
@@ -262,13 +286,13 @@ $important-suffix: '!';
     }
 
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
-      .#{$breakpoint-key}:#{$property-prefix}-#{$name} {
+      .#{$breakpoint-key}\\:#{$property-prefix}-#{$name} {
         @media (min-width: $breakpoint-value) {
           #{$property}: $value;
         }
       }
 
-      .#{$breakpoint-key}:#{$property-prefix}-#{$name}#{$important-suffix} {
+      .#{$breakpoint-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         @media (min-width: $breakpoint-value) {
           #{$property}: $value !important;
         }
@@ -276,26 +300,26 @@ $important-suffix: '!';
     }
 
     @each $pseudo-key, $pseudo-value in $pseudo-classes {
-      .#{$pseudo-key}:#{$property-prefix}-#{$name} {
+      .#{$pseudo-key}\\:#{$property-prefix}-#{$name} {
         &#{$pseudo-value} {
           #{$property}: $value;
         }
       }
 
-      .#{$pseudo-key}:#{$property-prefix}-#{$name}#{$important-suffix} {
+      .#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         &#{$pseudo-value} {
           #{$property}: $value !important;
         }
       }
 
       @each $breakpoint-key, $breakpoint-value in $breakpoints {
-        .#{$breakpoint-key}:#{$pseudo-key}:#{$property-prefix}-#{$name}:#{$pseudo-key} {
+        .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
             #{$property}: $value;
           }
         }
 
-        .#{$breakpoint-key}:#{$pseudo-key}:#{$property-prefix}-#{$name}#{$important-suffix}:#{$pseudo-key} {
+        .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
             #{$property}: $value !important;
           }
@@ -306,16 +330,8 @@ $important-suffix: '!';
 }
 
 @include generate-utilities('display', 'display', $display-values);
-@include generate-utilities(
-  'justify',
-  'justify-content',
-  $justify-content-values
-);
-@include generate-utilities(
-  'grid-cols',
-  'grid-template-columns',
-  $grid-cols-values
-);
+@include generate-utilities('justify', 'justify-content', $justify-content-values);
+@include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
 @include generate-utilities('align', 'align-items', $align-items-values);
 @include generate-utilities('flex', 'flex-direction', $flex-direction-values);
 @include generate-utilities('m', 'margin', $unit-values);
@@ -345,29 +361,12 @@ $important-suffix: '!';
 @include generate-utilities('blur', 'filter', $blur-values);
 @include generate-utilities('cursor', 'cursor', $cursor-values);
 @include generate-utilities('transition', 'transition', $transition-values);
-@include generate-utilities(
-  'duration',
-  'transition-duration',
-  $transition-unit-values
-);
-@include generate-utilities(
-  'delay',
-  'transition-delay',
-  $transition-unit-values
-);
-@include generate-utilities(
-  'ease',
-  'transition-timing-function',
-  $transition-values
-);
-@include generate-utilities('list', 'list-style-type', $list-style-values);
-@include generate-utilities('text', 'text-transform', $text-transform-values);
-@include generate-utilities('text', 'text-align', $text-align-values);
-@include generate-utilities('background', 'background-color', $colors);
-@include generate-utilities('w', 'width', $width-values);
-@include generate-utilities('color', 'color', $colors);
 @include generate-utilities('duration', 'transition-duration', $transition-unit-values);
 @include generate-utilities('delay', 'transition-delay', $transition-unit-values);
 @include generate-utilities('ease', 'transition-timing-function', $transition-values);
 @include generate-utilities('list', 'list-style-type', $list-style-values);
 @include generate-utilities('text', 'text-transform', $text-transform-values);
+@include generate-utilities('color', 'color', $colors);
+@include generate-utilities('background', 'background-color', $colors);
+@include generate-utilities('border-color', 'border-color', $colors);
+// @include generate-width-utilities()
