@@ -22,6 +22,12 @@ $shadow-values: (
   'none': 0 0 #0000,
 );
 
+$shadow-inset-values: (
+  'xs': inset 0 1px 2px 0 rgb(0, 0, 0, 0.05),
+  'sm': inset 0 1px 3px 0 rgb(0, 0, 0, 0.1),
+  'none': inset 0 0 #0000,
+);
+
 $radius-values: (
   'none': 0,
   'xs': 0.125rem,
@@ -58,6 +64,15 @@ $align-items-values: (
   'center': center,
   'stretch': stretch,
   'baseline': baseline,
+);
+
+$text-align-values: (
+  'left': left,
+  'center': center,
+  'right': right,
+  'justify': justify,
+  'start': start,
+  'end': end,
 );
 
 $flex-direction-values: (
@@ -114,6 +129,70 @@ $font-weight-values: (
   'extrabold': 800,
   'black': 900,
 );
+
+$blur-values: (
+  'xs': blur(4px),
+  'sm': blur(8px),
+  'md': blur(16px),
+  'lg': blur(24px),
+  'xl': blur(40px),
+  '2xl': blur(64px),
+  '3xl': blur(96px),
+  'none': none
+);
+
+$cursor-values: (
+  'auto': auto,
+  'default': default,
+  'pointer': pointer,
+  'wait': wait,
+  'text': text,
+  'move': move,
+  'not-allowed': not-allowed,
+  'grab': grab,
+  'grabbing': grabbing,
+);
+
+$transition-values: (
+  'all': all cubic-bezier(0.4, 0, 0.2, 1) 300ms
+);
+
+$transition-timing-values: (
+  'linear': linear,
+  'in': cubic-bezier(0.4, 0, 1, 1),
+  'out': cubic-bezier(0, 0, 0.2, 1),
+  'in-out': cubic-bezier(0.4, 0, 0.2, 1),
+  'initial': initial,
+);
+
+$transition-unit-values: (
+  '150': 150ms,
+  '300': 300ms,
+  '500': 500ms,
+  '700': 700ms,
+  '1000': 1000ms,
+);
+
+$list-style-values: (
+  'none': none,
+  'disc': disc,
+  'circle': circle,
+  'square': square,
+  'decimal': decimal,
+  'decimal-leading-zero': decimal-leading-zero,
+  'lower-roman': lower-roman,
+  'upper-roman': upper-roman,
+  'lower-alpha': lower-alpha,
+  'upper-alpha': upper-alpha,
+);
+
+$text-transform-values: (
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+  'capitalize': capitalize,
+  'normal-case': none,
+);
+
 
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
 // so we need to double-escape the double backslash
@@ -190,6 +269,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('pt', 'padding-top', $unit-values);
 @include generate-utilities('pl', 'padding-left', $unit-values);
 @include generate-utilities('pr', 'padding-right', $unit-values);
+@include generate-utilities('px', 'padding-inline', $unit-values);
+@include generate-utilities('py', 'padding-block', $unit-values);
 @include generate-utilities('gap', 'gap', $unit-values);
 @include generate-utilities('gap-x', 'column-gap', $unit-values);
 @include generate-utilities('gap-y', 'row-gap', $unit-values);
@@ -197,4 +278,14 @@ $important-suffix: "\\\\!";
 @include generate-utilities('border', 'border-width', $pixel-values);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
+@include generate-utilities('inset-shadow', 'box-shadow', $shadow-inset-values);
 @include generate-utilities('font', 'font-weight', $font-weight-values);
+@include generate-utilities('text', 'text-align', $text-align-values);
+@include generate-utilities('blur', 'filter', $blur-values);
+@include generate-utilities('cursor', 'cursor', $cursor-values);
+@include generate-utilities('transition', 'transition', $transition-values);
+@include generate-utilities('duration', 'transition-duration', $transition-unit-values);
+@include generate-utilities('delay', 'transition-delay', $transition-unit-values);
+@include generate-utilities('ease', 'transition-timing-function', $transition-values);
+@include generate-utilities('list', 'list-style-type', $list-style-values);
+@include generate-utilities('text', 'text-transform', $text-transform-values);
