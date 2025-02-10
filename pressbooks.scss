@@ -308,6 +308,7 @@ $important-suffix: "\\\\!";
 @include generate-utilities('border-l', 'border-left-width', $pixel-values);
 @include generate-utilities('border-b', 'border-bottom-width', $pixel-values);
 @include generate-utilities('border-t', 'border-top-width', $pixel-values);
+@include generate-utilities('border-color', 'border-color', $colors);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
 @include generate-utilities('inset-shadow', 'box-shadow', $shadow-inset-values);
@@ -325,6 +326,9 @@ $important-suffix: "\\\\!";
 @include generate-utilities('overflow', 'overflow', $overflow-values);
 @include generate-utilities('overflow-x', 'overflow-x', $overflow-values);
 @include generate-utilities('overflow-y', 'overflow-y', $overflow-values);
+@include generate-utilities('color', 'color', $colors);
+@include generate-utilities('background', 'background-color', $colors);
+@include generate-utilities('w', 'width', $width-values);
 
 /* Global Styles */
 
@@ -342,8 +346,3 @@ $important-suffix: "\\\\!";
 .mjx-mfrac {
   font-size: 1.5rem;
 }
-@include generate-utilities('text', 'text-transform', $text-transform-values);
-@include generate-utilities('color', 'color', $colors);
-@include generate-utilities('background', 'background-color', $colors);
-@include generate-utilities('border-color', 'border-color', $colors);
-@include generate-utilities('w', 'width', $width-values);
