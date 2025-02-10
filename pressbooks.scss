@@ -1,9 +1,9 @@
 $breakpoints: (
-  'sm': 576px,
-  'md': 768px,
-  'lg': 992px,
-  'xl': 1200px,
-  '2xl': 1400px,
+  'sm': 40rem,
+  'md': 48rem,
+  'lg': 64rem,
+  'xl': 80rem,
+  '2xl': 96rem,
 );
 
 $shadow-values: (
@@ -106,6 +106,13 @@ $pixel-values: (
   '8': 8px,
   '9': 9px,
   '10': 10px,
+);
+
+$overflow-values: (
+  'auto': auto,
+  'hidden': hidden,
+  'visible': visible,
+  'scroll': scroll,
 );
 
 $grid-cols-values: (
@@ -237,6 +244,22 @@ $width-values: (
   "96": 24rem
 );
 
+$font-size-values: (
+  'xs': 0.75rem,
+  'sm': 0.875rem,
+  'base': 1rem,
+  'lg': 1.125rem,
+  'xl': 1.25rem,
+  '2xl': 1.5rem,
+  '3xl': 1.875rem,
+  '4xl': 2.25rem,
+  '5xl': 3rem,
+  '6xl': 3.75rem,
+  '7xl': 4.5rem,
+  '8xl': 6rem,
+  '9xl': 8rem,
+);
+
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
 // so we need to double-escape the double backslash
 $important-suffix: "\\\\!";
@@ -319,11 +342,18 @@ $important-suffix: "\\\\!";
 @include generate-utilities('gap-y', 'row-gap', $unit-values);
 @include generate-utilities('indent', 'text-indent', $unit-values);
 @include generate-utilities('border', 'border-width', $pixel-values);
+@include generate-utilities('border-r', 'border-right-width', $pixel-values);
+@include generate-utilities('border-l', 'border-left-width', $pixel-values);
+@include generate-utilities('border-b', 'border-bottom-width', $pixel-values);
+@include generate-utilities('border-t', 'border-top-width', $pixel-values);
+@include generate-utilities('border-color', 'border-color', $colors);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
 @include generate-utilities('inset-shadow', 'box-shadow', $shadow-inset-values);
 @include generate-utilities('font', 'font-weight', $font-weight-values);
 @include generate-utilities('text', 'text-align', $text-align-values);
+@include generate-utilities('text', 'font-size', $font-size-values);
+@include generate-utilities('text', 'text-transform', $text-transform-values);
 @include generate-utilities('blur', 'filter', $blur-values);
 @include generate-utilities('cursor', 'cursor', $cursor-values);
 @include generate-utilities('transition', 'transition', $transition-values);
@@ -331,8 +361,26 @@ $important-suffix: "\\\\!";
 @include generate-utilities('delay', 'transition-delay', $transition-unit-values);
 @include generate-utilities('ease', 'transition-timing-function', $transition-values);
 @include generate-utilities('list', 'list-style-type', $list-style-values);
-@include generate-utilities('text', 'text-transform', $text-transform-values);
+@include generate-utilities('overflow', 'overflow', $overflow-values);
+@include generate-utilities('overflow-x', 'overflow-x', $overflow-values);
+@include generate-utilities('overflow-y', 'overflow-y', $overflow-values);
 @include generate-utilities('color', 'color', $colors);
 @include generate-utilities('background', 'background-color', $colors);
-@include generate-utilities('border-color', 'border-color', $colors);
 @include generate-utilities('w', 'width', $width-values);
+
+/* Global Styles */
+
+*,
+:after,
+:before,
+::backdrop {
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+}
+
+//  NOTE: Increase the `font-size` of mathjax fraction element
+.mjx-mfrac {
+  font-size: 1.5rem;
+}
