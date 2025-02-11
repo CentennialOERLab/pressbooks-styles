@@ -214,6 +214,9 @@ $colors: (
   'challenge-question': #eae8d7,
   'accordion': #f0f0f0,
   'transparent': transparent,
+  'black': #000,
+  'blur-box': #f9f9f9,
+  'blur-text': #333,
 );
 
 $width-values: (
@@ -243,6 +246,7 @@ $width-values: (
   "32": 8rem,
   "96": 24rem
 );
+
 $height-values: (
   'min': min-content,
   'max': max-content,
@@ -254,6 +258,7 @@ $height-values: (
   '60': 60%,
   '50': 50%
 );
+
 $font-size-values: (
   'xs': 0.75rem,
   'sm': 0.875rem,
@@ -358,6 +363,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('border-t', 'border-top-width', $pixel-values);
 @include generate-utilities('border-color', 'border-color', $colors);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
+@include generate-utilities('rounded-tl', 'border-top-left-radius', $radius-values);
+@include generate-utilities('rounded-tr', 'border-top-right-radius', $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
 @include generate-utilities('inset-shadow', 'box-shadow', $shadow-inset-values);
 @include generate-utilities('font', 'font-weight', $font-weight-values);
