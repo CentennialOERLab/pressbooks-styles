@@ -282,23 +282,47 @@ $important-suffix: "\\\\!";
 @mixin generate-utilities($property-prefix, $property, $values) {
   @each $name, $value in $values {
     .#{$property-prefix}-#{$name} {
-      #{$property}: $value;
+      @if type-of($property) == 'list' {
+        @each $prop in $property {
+          #{$prop}: $value;
+        }
+      } @else {
+        #{$property}: $value;
+      }
     }
 
     .#{$property-prefix}-#{$name}#{$important-suffix} {
-      #{$property}: $value !important;
+      @if type-of($property) == 'list' {
+        @each $prop in $property {
+          #{$prop}: $value !important;
+        }
+      } @else {
+        #{$property}: $value !important;
+      }
     }
 
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
       .#{$breakpoint-key}\\:#{$property-prefix}-#{$name} {
         @media (min-width: $breakpoint-value) {
-          #{$property}: $value;
+          @if type-of($property) == 'list' {
+            @each $prop in $property {
+              #{$prop}: $value;
+            }
+          } @else {
+            #{$property}: $value;
+          }
         }
       }
 
       .#{$breakpoint-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         @media (min-width: $breakpoint-value) {
-          #{$property}: $value !important;
+          @if type-of($property) == 'list' {
+            @each $prop in $property {
+              #{$prop}: $value !important;
+            }
+          } @else {
+            #{$property}: $value !important;
+          }
         }
       }
     }
@@ -306,26 +330,50 @@ $important-suffix: "\\\\!";
     @each $pseudo-key, $pseudo-value in $pseudo-classes {
       .#{$pseudo-key}\\:#{$property-prefix}-#{$name} {
         &#{$pseudo-value} {
-          #{$property}: $value;
+          @if type-of($property) == 'list' {
+            @each $prop in $property {
+              #{$prop}: $value;
+            }
+          } @else {
+            #{$property}: $value;
+          }
         }
       }
 
       .#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         &#{$pseudo-value} {
-          #{$property}: $value !important;
+          @if type-of($property) == 'list' {
+            @each $prop in $property {
+              #{$prop}: $value !important;
+            }
+          } @else {
+            #{$property}: $value !important;
+          }
         }
       }
 
       @each $breakpoint-key, $breakpoint-value in $breakpoints {
         .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
-            #{$property}: $value;
+            @if type-of($property) == 'list' {
+              @each $prop in $property {
+                #{$prop}: $value;
+              }
+            } @else {
+              #{$property}: $value;
+            }
           }
         }
 
         .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
-            #{$property}: $value !important;
+            @if type-of($property) == 'list' {
+              @each $prop in $property {
+                #{$prop}: $value !important;
+              }
+            } @else {
+              #{$property}: $value !important;
+            }
           }
         }
       }
