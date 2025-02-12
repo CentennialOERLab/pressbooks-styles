@@ -214,6 +214,10 @@ $colors: (
   'challenge-question': #eae8d7,
   'accordion': #f0f0f0,
   'transparent': transparent,
+  'black': #000,
+  'blur-box': #f9f9f9,
+  'blur-text': #333,
+  'table-head': #ebef98,
 );
 
 $width-values: (
@@ -243,6 +247,7 @@ $width-values: (
   "32": 8rem,
   "96": 24rem
 );
+
 $height-values: (
   'min': min-content,
   'max': max-content,
@@ -254,6 +259,7 @@ $height-values: (
   '60': 60%,
   '50': 50%
 );
+
 $font-size-values: (
   'xs': 0.75rem,
   'sm': 0.875rem,
@@ -277,23 +283,31 @@ $important-suffix: "\\\\!";
 @mixin generate-utilities($property-prefix, $property, $values) {
   @each $name, $value in $values {
     .#{$property-prefix}-#{$name} {
-      #{$property}: $value;
+      @each $prop in $property {
+        #{$prop}: $value;
+      }
     }
 
     .#{$property-prefix}-#{$name}#{$important-suffix} {
-      #{$property}: $value !important;
+      @each $prop in $property {
+        #{$prop}: $value !important;
+      }
     }
 
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
       .#{$breakpoint-key}\\:#{$property-prefix}-#{$name} {
         @media (min-width: $breakpoint-value) {
-          #{$property}: $value;
+          @each $prop in $property {
+            #{$prop}: $value;
+          }
         }
       }
 
       .#{$breakpoint-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         @media (min-width: $breakpoint-value) {
-          #{$property}: $value !important;
+          @each $prop in $property {
+            #{$prop}: $value !important;
+          }
         }
       }
     }
@@ -301,26 +315,34 @@ $important-suffix: "\\\\!";
     @each $pseudo-key, $pseudo-value in $pseudo-classes {
       .#{$pseudo-key}\\:#{$property-prefix}-#{$name} {
         &#{$pseudo-value} {
-          #{$property}: $value;
+          @each $prop in $property {
+            #{$prop}: $value;
+          }
         }
       }
 
       .#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix} {
         &#{$pseudo-value} {
-          #{$property}: $value !important;
+          @each $prop in $property {
+            #{$prop}: $value !important;
+          }
         }
       }
 
       @each $breakpoint-key, $breakpoint-value in $breakpoints {
         .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
-            #{$property}: $value;
+            @each $prop in $property {
+              #{$prop}: $value;
+            }
           }
         }
 
         .#{$breakpoint-key}\\:#{$pseudo-key}\\:#{$property-prefix}-#{$name}#{$important-suffix}:#{$pseudo-key} {
           @media (min-width: $breakpoint-value) {
-            #{$property}: $value !important;
+            @each $prop in $property {
+              #{$prop}: $value !important;
+            }
           }
         }
       }
@@ -358,6 +380,10 @@ $important-suffix: "\\\\!";
 @include generate-utilities('border-t', 'border-top-width', $pixel-values);
 @include generate-utilities('border-color', 'border-color', $colors);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
+@include generate-utilities('rounded-t', ('border-top-left-radius', 'border-top-right-radius'), $radius-values);
+@include generate-utilities('rounded-r', ('border-top-right-radius', 'border-bottom-right-radius'), $radius-values);
+@include generate-utilities('rounded-l', ('border-top-left-radius', 'border-bottom-left-radius'), $radius-values);
+@include generate-utilities('rounded-b', ('border-bottom-left-radius', 'border-bottom-right-radius'), $radius-values);
 @include generate-utilities('shadow', 'box-shadow', $shadow-values);
 @include generate-utilities('inset-shadow', 'box-shadow', $shadow-inset-values);
 @include generate-utilities('font', 'font-weight', $font-weight-values);
@@ -383,8 +409,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('right', 'right', $unit-values);
 @include generate-utilities('bottom', 'bottom', $unit-values);
 @include generate-utilities('left', 'left', $unit-values);
-/* Global Styles */
 
+/* Global Styles */
 *,
 :after,
 :before,
