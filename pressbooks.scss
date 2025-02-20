@@ -218,6 +218,7 @@ $colors: (
   'blur-box': #f9f9f9,
   'blur-text': #333,
   'table-head': #ebef98,
+  'example-box':#eae8d7,
 );
 
 $width-values: (
@@ -424,4 +425,467 @@ $important-suffix: "\\\\!";
 //  NOTE: Increase the `font-size` of mathjax fraction element
 .mjx-mfrac {
   font-size: 1.5rem;
+}
+
+/* Alternates Box*/
+div.customboxncc {
+  margin-bottom: 5px;
+  padding: 0em 0em 0.5em 0em;
+  border-radius: 10px;
+  /* Rounded corners */
+  border-style: none;
+  /* Remove the border */
+  border-width: 0;
+  /* No border width */
+  color: #000;
+  background: #ffffff;
+  /* Set the background to white */
+  margin-top: 20px;
+  /* Retain your custom margin-top */
+  box-shadow:
+    -0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Left shadow */
+    0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Right shadow */
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  /* soft general shadow */
+}
+
+/* Alternates Box Header*/
+.customboxncc>.customboxncc_header {
+  background: #FECE98;
+  /* Match exercises header background */
+  border-style: none;
+  /* Remove the border */
+  border-width: 0;
+  /* No border width */
+  border-top-left-radius: 10px;
+  /* Top-left corner rounding */
+  border-top-right-radius: 10px;
+  /* Top-right corner rounding */
+  margin: 0;
+  /* Reset margin */
+  padding: 0.6em 1.2em 0.6em 1.2em;
+  /* Consistent padding */
+  font-style: none;
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.customboxncc>.customboxncc_header p {
+  text-indent: 0;
+}
+
+.customboxncc>.customboxncc_content {
+  margin: 0;
+  padding: 1.7777777778em 1.7777777778em 1.7777777778em 1.7777777778em;
+  /* Add content padding */
+  padding-bottom: 5px;
+  /* Add extra bottom padding for spacing */
+}
+
+.customboxncc>.customboxncc_header>.customboxncc_title {
+  color: #414042;
+}
+
+.textbox.shaded,
+.shaded.bcc-box,
+.textbox.examples,
+.examples.bcc-box {
+  border-radius: 10px;
+}
+
+/*Alternate Box remove bottom border*/
+section.chapter header:not(.textbox__header),
+section.front-matter header:not(.textbox__header),
+section.back-matter header:not(.textbox__header) {
+  border-bottom: 0;
+}
+
+/*exercises box*/
+.textbox.textbox--exercises .textbox__header,
+.textbox--exercises.bcc-box .textbox__header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2em;
+  padding: 0.6em 1.2em 0.6em 1.2em;
+  /* Consistent padding */
+}
+
+.textbox.textbox--exercises,
+.textbox--exercises.bcc-box {
+  border-radius: 10px;
+  box-shadow:
+    -0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Left shadow */
+    0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Right shadow */
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  /* soft general shadow */
+}
+
+/*example box*/
+.textbox.textbox--examples .textbox__header,
+.textbox--examples.bcc-box .textbox__header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2em;
+  padding: 0.6em 1.2em 0.6em 1.2em;
+  /* Consistent padding */
+
+}
+
+.textbox.textbox--examples,
+.textbox--examples.bcc-box {
+  border-radius: 10px;
+  box-shadow:
+    -0.5px 0 0 rgba(0, 0, 0, 0.1),
+    0.5px 0 0 rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*general textboxes*/
+.textbox,
+.bcc-box {
+  border-radius: 10px;
+}
+
+/*takeaways box*/
+.textbox.textbox--key-takeaways .textbox__header,
+.textbox--key-takeaways.bcc-box .textbox__header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2em;
+  padding: 0.6em 1.2em 0.6em 1.2em;
+  /* Consistent padding */
+}
+
+.textbox.textbox--key-takeaways,
+.textbox--key-takeaways.bcc-box {
+  border-radius: 10px;
+  box-shadow:
+    -0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Left shadow */
+    0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Right shadow */
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  /* soft general shadow */
+}
+
+/*learning-objectives*/
+.textbox.textbox--learning-objectives .textbox__header,
+.textbox--learning-objectives.bcc-box .textbox__header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2em;
+  padding: 0.6em 1.2em 0.6em 1.2em;
+  /* Consistent padding */
+}
+
+.textbox.textbox--learning-objectives,
+.textbox--learning-objectives.bcc-box {
+  border-radius: 10px;
+  box-shadow:
+    -0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Left shadow */
+    0.5px 0 0 rgba(0, 0, 0, 0.1),
+    /* Right shadow */
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  /* soft general shadow */
+}
+
+.special_exercises {
+  border-left-color: #3c2a21;
+  border-left-width: 8px;
+  background-color: #FFFFFF;
+}
+
+.special_lo {
+  border-left-color: #c5bdaa;
+  border-left-width: 8px;
+  background-color: #FFFFFF;
+}
+
+.special_kt {
+  border-left-color: #f79750;
+  border-left-width: 8px;
+  background-color: #FFFFFF;
+}
+
+.special_example {
+  border-left-color: #eae8d7;
+  border-left-width: 8px;
+  background-color: #FFFFFF;
+}
+
+.special_a {
+  border-left-color: #fece98;
+  border-left-width: 8px;
+  background-color: #FFFFFF;
+}
+
+
+
+/* cyvergara - stylings: blurred answer. */
+.center-screen {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 13px;
+  margin-bottom: 18px;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  display: inline-block;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.practice-container {
+  font-family: Arial, sans-serif;
+  display: inline-block;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.solution {
+  color: #333;
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.solution:hover {
+  filter: blur(0);
+}
+
+.latex-center {
+  text-align: center;
+  /* Center only LaTeX elements */
+}
+
+/* upper bar color*/
+.cta {
+  background-color: #D4DF38;
+  color: #000000;
+  text-align: right;
+}
+
+/* For given and find*/
+.side_by_side {
+  display: flex;
+  justify-content: space-between;
+}
+
+.given,
+.find {
+  width: 45%;
+}
+
+.front-matter .wp-caption.aligncenter .wp-caption-text,
+.front-matter .wp-nocaption.aligncenter .wp-caption-text,
+.part .wp-caption.aligncenter .wp-caption-text,
+.part .wp-nocaption.aligncenter .wp-caption-text,
+.chapter .wp-caption.aligncenter .wp-caption-text,
+.chapter .wp-nocaption.aligncenter .wp-caption-text,
+.back-matter .wp-caption.aligncenter .wp-caption-text,
+.back-matter .wp-nocaption.aligncenter .wp-caption-text {
+  text-align: center;
+  font-style: normal;
+}
+
+;
+
+/* makes the text for the previous/next buttons in the webbook bigger */
+.nav-reading__next a,
+.nav-reading__previous a {
+  font-size: .99rem !important;
+}
+
+/*Text color in the lower bar @Ulf**/
+.nav-reading__next a,
+.nav-reading__previous a {
+  border: 1px solid transparent;
+  color: #414042;
+  display: block;
+  font-family: Karla, sans-serif;
+  font-size: 0.99rem;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+  /*hover effect added */
+}
+
+.nav-reading__next,
+.nav-reading__previous {
+  color: unset;
+}
+
+.nav-reading__next a:hover,
+.nav-reading__previous a:hover {
+  color: #FFFFFF;
+  /* hover color changed @Ulf**/
+  background-color: rgba(65, 64, 66, 0.8);
+}
+
+.nav-reading__next a:focus,
+.nav-reading__previous a:focus {
+  border: #414042;
+  outline: none;
+}
+
+/* lower bar bg color */
+.nav-reading {
+  background-color: #D4DF38;
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+/* li {
+  text-align: left;
+  font-size: 18px;
+} */
+
+.mjx-mfrac {
+  font-size: 25px;
+}
+
+/* caption {
+  caption-side: top;
+} */
+
+/* Accordions on Look and Feel*/
+
+details>summary {
+  padding: 10px 10px;
+  font-size: 1.0em;
+  font-weight: bold;
+  background-color: #F0F0F0;
+  color: var(--color-one);
+  border: 2px solid var(--color-one);
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+}
+
+details[open]>summary {
+  background-color: #f79750;
+  color: #000000;
+}
+
+.collapsed {
+  border-radius: 10px 10px 10px 10px;
+  background-color: #F0F0F0;
+  padding: 20px 20px;
+  margin-bottom: 15px;
+}
+
+/* # The Sliding Summary # */
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: var(--details-translate, translateY(-0.5em));
+  }
+}
+
+details[open]>*:not(summary) {
+  animation: details-show 750ms ease-in-out;
+}
+
+/* End: Accordion */
+/* Icons - juan p. amorocho*/
+.icon_large {
+  width: 85px;
+  height: 85px;
+}
+
+/* special textboxes with icon image on left side - stylings. */
+
+.special_flex_container {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+}
+
+.special_flex_textblock {
+  order: 2;
+  width: 90%;
+  background-color: #FFFFFF;
+  border-radius: 0px 10px 10px 0px;
+  border-width: 0.05em 0.05em 0.05em 0;
+}
+
+.flex_colorblock {
+  order: 1;
+  width: 10%;
+  background-color: #454546;
+  padding: 0em;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 10px 0px 0px 10px;
+  border-style: none;
+}
+
+.img_helper_verticalmiddle {
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+img.verticalmiddle {
+  vertical-align: middle;
+}
+
+img.circleicon {
+  padding-top: 50px;
+  padding-right: 15px;
+}
+
+/* end - Left icon stylings */
+/* style for tables*/
+/* .grid doesn't even add display grid, ??????? */
+/*.grid {
+    border-collapse: collapse;
+    width: 100%;
+    height: auto;
+}*/
+
+.aligncenter {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* caption {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+thead tr {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  width: 33.33%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+tbody tr {
+  height: 15px;
+} */
+
+.shaded {
+  background-color: #ebef98;
 }
