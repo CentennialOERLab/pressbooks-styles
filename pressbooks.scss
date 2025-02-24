@@ -282,6 +282,11 @@ $font-size-values: (
   '9xl': 8rem,
 );
 
+$line-styles:(
+  'solid':solid,
+  'dashed':dashed,
+)
+
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
 // so we need to double-escape the double backslash
 $important-suffix: "\\\\!";
@@ -415,6 +420,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('right', 'right', $unit-values);
 @include generate-utilities('bottom', 'bottom', $unit-values);
 @include generate-utilities('left', 'left', $unit-values);
+@include generate-utilities('border-line','border-style',$line-styles);
+@include generate-utilities('border-color','border-color',$colors);
 
 /* Global Styles */
 *,
