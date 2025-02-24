@@ -220,7 +220,7 @@ $colors: (
   'table-head': #ebef98,
   'example-box':#eae8d7,
   'key-takeaways':#f79750,
-  'alternates2':#FECE98,
+  'alternates-two':#FECE98,
   'box-headers':#414042,
   'picture-background':#454546,
 );
@@ -404,7 +404,7 @@ $important-suffix: "\\\\!";
 @include generate-utilities('ease', 'transition-timing-function', $transition-values);
 @include generate-utilities('list', 'list-style-type', $list-style-values);
 @include generate-utilities('overflow', 'overflow', $overflow-values);
-@include generate-utilities('overflow-x', 'overflowrounded-l-x', $overflow-values);
+@include generate-utilities('overflow-x', 'overflow-x', $overflow-values);
 @include generate-utilities('overflow-y', 'overflow-y', $overflow-values);
 @include generate-utilities('color', 'color', $colors);
 @include generate-utilities('background', 'background-color', $colors);
