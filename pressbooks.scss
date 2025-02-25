@@ -577,28 +577,6 @@ section.back-matter header:not(.textbox__header) {
   /* soft general shadow */
 }
 
-/*learning-objectives*/
-.textbox.textbox--learning-objectives .textbox__header,
-.textbox--learning-objectives.bcc-box .textbox__header {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-size: 1.2em;
-  padding: 0.6em 1.2em 0.6em 1.2em;
-  /* Consistent padding */
-}
-
-.textbox.textbox--learning-objectives,
-.textbox--learning-objectives.bcc-box {
-  border-radius: 10px;
-  box-shadow:
-    -0.5px 0 0 rgba(0, 0, 0, 0.1),
-    /* Left shadow */
-    0.5px 0 0 rgba(0, 0, 0, 0.1),
-    /* Right shadow */
-    0 4px 6px rgba(0, 0, 0, 0.1);
-  /* soft general shadow */
-}
-
 .special_exercises {
   border-left-color: #3c2a21;
   border-left-width: 8px;
