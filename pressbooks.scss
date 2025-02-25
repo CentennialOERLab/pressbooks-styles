@@ -66,6 +66,14 @@ $align-items-values: (
   'baseline': baseline,
 );
 
+$justify-self-values: (
+  auto: auto,
+  start: start,
+  end: end,
+  center: center,
+  stretch: stretch,
+);
+
 $text-align-values: (
   'left': left,
   'center': center,
@@ -83,6 +91,7 @@ $flex-direction-values: (
 );
 
 $unit-values: (
+  'auto': auto,
   '0': 0,
   '1': 0.25rem,
   '2': 0.5rem,
@@ -358,6 +367,8 @@ $important-suffix: "\\\\!";
 
 @include generate-utilities('display', 'display', $display-values);
 @include generate-utilities('justify', 'justify-content', $justify-content-values);
+@include generate-utilities('justify-self', 'justify-self', $justify-self-values);
+@include generate-utilities('align-self', 'align-self', $align-items-values);
 @include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
 @include generate-utilities('align', 'align-items', $align-items-values);
 @include generate-utilities('flex', 'flex-direction', $flex-direction-values);
