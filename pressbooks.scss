@@ -607,8 +607,6 @@ section.back-matter header:not(.textbox__header) {
   background-color: #FFFFFF;
 }
 
-
-
 /* cyvergara - stylings: blurred answer. */
 .center-screen {
   display: flex;
@@ -660,17 +658,6 @@ section.back-matter header:not(.textbox__header) {
   text-align: right;
 }
 
-/* For given and find*/
-.side_by_side {
-  display: flex;
-  justify-content: space-between;
-}
-
-.given,
-.find {
-  width: 45%;
-}
-
 .front-matter .wp-caption.aligncenter .wp-caption-text,
 .front-matter .wp-nocaption.aligncenter .wp-caption-text,
 .part .wp-caption.aligncenter .wp-caption-text,
@@ -682,8 +669,6 @@ section.back-matter header:not(.textbox__header) {
   text-align: center;
   font-style: normal;
 }
-
-;
 
 /* makes the text for the previous/next buttons in the webbook bigger */
 .nav-reading__next a,
@@ -734,18 +719,9 @@ section.back-matter header:not(.textbox__header) {
   width: 100%;
 }
 
-/* li {
-  text-align: left;
-  font-size: 18px;
-} */
-
 .mjx-mfrac {
   font-size: 25px;
 }
-
-/* caption {
-  caption-side: top;
-} */
 
 /* Accordions on Look and Feel*/
 
@@ -834,40 +810,10 @@ img.circleicon {
   padding-right: 15px;
 }
 
-/* end - Left icon stylings */
-/* style for tables*/
-/* .grid doesn't even add display grid, ??????? */
-/*.grid {
-    border-collapse: collapse;
-    width: 100%;
-    height: auto;
-}*/
-
 .aligncenter {
   text-align: center;
   vertical-align: middle;
 }
-
-/* caption {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-thead tr {
-  background-color: #f2f2f2;
-}
-
-th,
-td {
-  width: 33.33%;
-  text-align: center;
-  vertical-align: middle;
-}
-
-tbody tr {
-  height: 15px;
-} */
 
 .shaded {
   background-color: #ebef98;
