@@ -259,8 +259,14 @@ $width-values: (
   "8": 2rem,
   "10": 2.5rem,
   "16": 4rem,
+  "20": 5rem,
+  "24": 6rem,
   "32": 8rem,
-  "96": 24rem
+  "40": 10rem,
+  "48": 12rem,
+  "56": 14rem,
+  "64": 16rem,
+  "96": 24rem,
 );
 
 $height-values: (
@@ -272,7 +278,8 @@ $height-values: (
   '80': 80%,
   '70': 70%,
   '60': 60%,
-  '50': 50%
+  '50': 50%,
+  'auto':auto,
 );
 
 $font-size-values: (
@@ -289,6 +296,11 @@ $font-size-values: (
   '7xl': 4.5rem,
   '8xl': 6rem,
   '9xl': 8rem,
+);
+
+$line-styles:(
+  'solid':solid,
+  'dashed':dashed,
 );
 
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
@@ -395,7 +407,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('border-l', 'border-left-width', $pixel-values);
 @include generate-utilities('border-b', 'border-bottom-width', $pixel-values);
 @include generate-utilities('border-t', 'border-top-width', $pixel-values);
-@include generate-utilities('border-color', 'border-color', $colors);
+@include generate-utilities('border', 'border-color', $colors);
+@include generate-utilities('border','border-style',$line-styles);
 @include generate-utilities('rounded', 'border-radius', $radius-values);
 @include generate-utilities('rounded-t', ('border-top-left-radius', 'border-top-right-radius'), $radius-values);
 @include generate-utilities('rounded-r', ('border-top-right-radius', 'border-bottom-right-radius'), $radius-values);
@@ -426,6 +439,7 @@ $important-suffix: "\\\\!";
 @include generate-utilities('right', 'right', $unit-values);
 @include generate-utilities('bottom', 'bottom', $unit-values);
 @include generate-utilities('left', 'left', $unit-values);
+@include generate-utilities('max-w','max-width',$width-values);
 
 /* Global Styles */
 *,
