@@ -274,7 +274,8 @@ $height-values: (
   '80': 80%,
   '70': 70%,
   '60': 60%,
-  '50': 50%
+  '50': 50%,
+  'auto':auto,
 );
 
 $font-size-values: (
@@ -435,6 +436,7 @@ $important-suffix: "\\\\!";
 @include generate-utilities('left', 'left', $unit-values);
 @include generate-utilities('border-line','border-style',$line-styles);
 @include generate-utilities('border-color','border-color',$colors);
+@include generate-utilities('max-w','max-width',$width-values);
 
 /* Global Styles */
 *,
