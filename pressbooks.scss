@@ -66,6 +66,14 @@ $align-items-values: (
   'baseline': baseline,
 );
 
+$justify-self-values: (
+  auto: auto,
+  start: start,
+  end: end,
+  center: center,
+  stretch: stretch,
+);
+
 $text-align-values: (
   'left': left,
   'center': center,
@@ -83,6 +91,7 @@ $flex-direction-values: (
 );
 
 $unit-values: (
+  'auto': auto,
   '0': 0,
   '1': 0.25rem,
   '2': 0.5rem,
@@ -363,6 +372,8 @@ $important-suffix: "\\\\!";
 
 @include generate-utilities('display', 'display', $display-values);
 @include generate-utilities('justify', 'justify-content', $justify-content-values);
+@include generate-utilities('justify-self', 'justify-self', $justify-self-values);
+@include generate-utilities('align-self', 'align-self', $align-items-values);
 @include generate-utilities('grid-cols', 'grid-template-columns', $grid-cols-values);
 @include generate-utilities('align', 'align-items', $align-items-values);
 @include generate-utilities('flex', 'flex-direction', $flex-direction-values);
@@ -584,28 +595,6 @@ section.back-matter header:not(.textbox__header) {
   /* soft general shadow */
 }
 
-/*learning-objectives*/
-.textbox.textbox--learning-objectives .textbox__header,
-.textbox--learning-objectives.bcc-box .textbox__header {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-size: 1.2em;
-  padding: 0.6em 1.2em 0.6em 1.2em;
-  /* Consistent padding */
-}
-
-.textbox.textbox--learning-objectives,
-.textbox--learning-objectives.bcc-box {
-  border-radius: 10px;
-  box-shadow:
-    -0.5px 0 0 rgba(0, 0, 0, 0.1),
-    /* Left shadow */
-    0.5px 0 0 rgba(0, 0, 0, 0.1),
-    /* Right shadow */
-    0 4px 6px rgba(0, 0, 0, 0.1);
-  /* soft general shadow */
-}
-
 .special_exercises {
   border-left-color: #3c2a21;
   border-left-width: 8px;
@@ -635,8 +624,6 @@ section.back-matter header:not(.textbox__header) {
   border-left-width: 8px;
   background-color: #FFFFFF;
 }
-
-
 
 /* cyvergara - stylings: blurred answer. */
 .center-screen {
@@ -689,17 +676,6 @@ section.back-matter header:not(.textbox__header) {
   text-align: right;
 }
 
-/* For given and find*/
-.side_by_side {
-  display: flex;
-  justify-content: space-between;
-}
-
-.given,
-.find {
-  width: 45%;
-}
-
 .front-matter .wp-caption.aligncenter .wp-caption-text,
 .front-matter .wp-nocaption.aligncenter .wp-caption-text,
 .part .wp-caption.aligncenter .wp-caption-text,
@@ -711,8 +687,6 @@ section.back-matter header:not(.textbox__header) {
   text-align: center;
   font-style: normal;
 }
-
-;
 
 /* makes the text for the previous/next buttons in the webbook bigger */
 .nav-reading__next a,
@@ -763,18 +737,9 @@ section.back-matter header:not(.textbox__header) {
   width: 100%;
 }
 
-/* li {
-  text-align: left;
-  font-size: 18px;
-} */
-
 .mjx-mfrac {
   font-size: 25px;
 }
-
-/* caption {
-  caption-side: top;
-} */
 
 /* Accordions on Look and Feel*/
 
@@ -863,40 +828,10 @@ img.circleicon {
   padding-right: 15px;
 }
 
-/* end - Left icon stylings */
-/* style for tables*/
-/* .grid doesn't even add display grid, ??????? */
-/*.grid {
-    border-collapse: collapse;
-    width: 100%;
-    height: auto;
-}*/
-
 .aligncenter {
   text-align: center;
   vertical-align: middle;
 }
-
-/* caption {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-thead tr {
-  background-color: #f2f2f2;
-}
-
-th,
-td {
-  width: 33.33%;
-  text-align: center;
-  vertical-align: middle;
-}
-
-tbody tr {
-  height: 15px;
-} */
 
 .shaded {
   background-color: #ebef98;
