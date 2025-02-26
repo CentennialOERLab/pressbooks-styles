@@ -297,7 +297,7 @@ $font-size-values: (
 $line-styles:(
   'solid':solid,
   'dashed':dashed,
-)
+);
 
 //  NOTE: the php-sass compiler automatically removes backslashes from its output,
 // so we need to double-escape the double backslash
