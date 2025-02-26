@@ -434,8 +434,8 @@ $important-suffix: "\\\\!";
 @include generate-utilities('right', 'right', $unit-values);
 @include generate-utilities('bottom', 'bottom', $unit-values);
 @include generate-utilities('left', 'left', $unit-values);
-@include generate-utilities('border-line','border-style',$line-styles);
-@include generate-utilities('border-color','border-color',$colors);
+@include generate-utilities('border','border-style',$line-styles);
+@include generate-utilities('border','border-color',$colors);
 @include generate-utilities('max-w','max-width',$width-values);
 
 /* Global Styles */
