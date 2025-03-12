@@ -845,3 +845,11 @@ img.circleicon {
 .shaded {
   background-color: #ebef98;
 }
+
+/* nmendo16 - a class to show static images for PDF version, and GIF for web */
+figure.unique-figure .web-version {
+  display: block !important;
+ }
+figure.unique-figure .print-version {
+  display: none !important;
+ }
