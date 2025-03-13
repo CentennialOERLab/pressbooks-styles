@@ -298,7 +298,7 @@ $font-size-values: (
   '9xl': 8rem,
 );
 
-$line-styles:(
+$line-styles: (
   'solid':solid,
   'dashed':dashed,
 );
@@ -844,4 +844,16 @@ img.circleicon {
 
 .shaded {
   background-color: #ebef98;
+}
+
+.mjx-math {
+  font-size: 18px;
+}
+
+.mjx-sub {
+  font-size: 14px !important;
+}
+
+.mjx-sup {
+  font-size: 14px !important;
 }
